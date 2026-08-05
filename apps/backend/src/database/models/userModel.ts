@@ -1,0 +1,13 @@
+export type UserRole = 'ROLE_CITIZEN' | 'ROLE_OFFICER' | 'ROLE_ADMIN';
+
+export interface UserEntity {
+  id: string;
+  name: string;
+  email: string;
+  passwordHash?: string;
+  role: UserRole;
+  jurisdiction?: string;
+  abhaId?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}

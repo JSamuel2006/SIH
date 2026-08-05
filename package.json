@@ -1,0 +1,18 @@
+{
+  "name": "arogyaverse-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "India's AI Public Health Intelligence Platform",
+  "scripts": {
+    "dev:frontend": "npm --prefix apps/frontend run dev",
+    "dev:backend": "npm --prefix apps/backend run dev",
+    "build:frontend": "npm --prefix apps/frontend run build",
+    "build:backend": "npm --prefix apps/backend run build"
+  },
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "author": "ArogyaVerse AI Architecture Team",
+  "license": "UNLICENSED"
+}
