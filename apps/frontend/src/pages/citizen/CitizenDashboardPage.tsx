@@ -151,25 +151,25 @@ export default function CitizenDashboardPage() {
       <div className="max-w-6xl mx-auto space-y-6">
 
         {/* ── Welcome Banner ─────────────────────────────────────────────────── */}
-        <header className="relative bg-slate-900 border border-slate-800 rounded-2xl p-6 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_100%_50%,rgba(59,130,246,0.08),transparent)]" />
-          <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <header className="relative bg-slate-950/75 border border-slate-905 border-slate-900 rounded-3xl p-8 overflow-hidden backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_100%_50%,rgba(34,211,238,0.06),transparent)]" />
+          <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
-              <p className="text-xs text-slate-500 font-semibold mb-1">{greeting()}</p>
-              <h1 className="text-2xl font-bold text-slate-100">{user?.name || 'Citizen'} 👋</h1>
-              <p className="text-xs text-slate-400 mt-1 max-w-md">
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1.5">{greeting()}</p>
+              <h1 className="text-3xl font-black text-slate-100">{user?.name || 'Citizen'} 👋</h1>
+              <p className="text-xs text-slate-400 mt-2 max-w-lg leading-relaxed">
                 Your personal health education portal powered by ICMR, WHO, and MoHFW verified data.
               </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <span className="text-[10px] px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md font-semibold">ABHA Verified</span>
-                <span className="text-[10px] px-2 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-semibold">DPDP Privacy Protected</span>
-                <span className="text-[10px] px-2 py-0.5 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-md font-semibold">PII Redacted</span>
+              <div className="flex flex-wrap gap-2 mt-4.5">
+                <span className="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 bg-emerald-500/10 text-emerald-450 text-emerald-400 border border-emerald-500/20 rounded-lg">ABHA Verified</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-lg">DPDP Privacy Protected</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg">PII Redacted</span>
               </div>
             </div>
             <Link
               to="/citizen/triage"
               id="hero-start-ai-btn"
-              className="flex-shrink-0 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold rounded-xl flex items-center gap-2 transition shadow-lg shadow-blue-600/20"
+              className="flex-shrink-0 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-xs font-bold rounded-2xl flex items-center gap-2.5 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
             >
               <Bot className="w-4 h-4" /> Start AI Health Query
             </Link>
@@ -177,7 +177,7 @@ export default function CitizenDashboardPage() {
         </header>
 
         {/* ── Quick Action Cards ─────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {QUICK_ACTIONS.map((action) => {
             const Icon = action.icon;
             const colors = COLOR_MAP[action.color];
@@ -186,20 +186,20 @@ export default function CitizenDashboardPage() {
                 key={action.id}
                 id={action.id}
                 to={action.href}
-                className="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-slate-700 transition group flex flex-col justify-between"
+                className="bg-slate-950/65 border border-slate-900 rounded-2xl p-6 hover:border-slate-800 transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
-                  <div className={`p-2.5 ${colors.bg} ${colors.text} rounded-xl w-fit mb-3 transition group-hover:scale-110 duration-200`}>
+                  <div className={`p-3 ${colors.bg} ${colors.text} rounded-2xl w-fit mb-4.5 border ${colors.border} transition-all duration-300 group-hover:scale-110`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-sm text-slate-200 group-hover:text-white transition">{action.label}</h3>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{action.description}</p>
+                  <h3 className="font-bold text-sm text-slate-200 group-hover:text-white transition duration-300">{action.label}</h3>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">{action.description}</p>
                 </div>
-                <div className="flex items-center justify-between mt-4">
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${colors.badge}`}>
+                <div className="flex items-center justify-between mt-5">
+                  <span className={`text-[9px] font-bold px-2.5 py-0.5 rounded border uppercase tracking-wider ${colors.badge}`}>
                     {action.badge}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-slate-400 group-hover:translate-x-0.5 transition-all" />
+                  <ChevronRight className="w-4 h-4 text-slate-600 group-hover:text-slate-400 group-hover:translate-x-1 transition-all duration-305" />
                 </div>
               </Link>
             );
@@ -210,25 +210,25 @@ export default function CitizenDashboardPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* Auto-cycling Health Tip */}
-          <div className={`bg-slate-900 border ${tipColors.border} rounded-2xl p-6 flex flex-col justify-between transition-colors duration-500`}>
-            <div className="flex items-center justify-between mb-4">
+          <div className={`bg-slate-950/65 border ${tipColors.border} rounded-3xl p-6.5 flex flex-col justify-between transition-all duration-500 backdrop-blur-xl shadow-lg`}>
+            <div className="flex items-center justify-between mb-4.5">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-blue-400" />
-                <h3 className="text-sm font-bold text-slate-200">Daily Health Awareness Tip</h3>
+                <Sparkles className="w-4 h-4 text-cyan-455 text-cyan-450" />
+                <h3 className="text-sm font-bold text-slate-205">Daily Health Awareness Tip</h3>
               </div>
-              <div className="flex gap-1">
+              <div className="flex gap-1.5">
                 {HEALTH_TIPS.map((_, i) => (
                   <button
                     key={i}
                     id={`tip-dot-${i}`}
                     onClick={() => setTipIndex(i)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === tipIndex ? `${tipColors.bg} scale-125` : 'bg-slate-700'}`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${i === tipIndex ? `${tipColors.bg} scale-125 border ${tipColors.border}` : 'bg-slate-800'}`}
                   />
                 ))}
               </div>
             </div>
 
-            <div className={`p-4 ${tipColors.bg} border ${tipColors.border} rounded-xl space-y-2 flex-1`}>
+            <div className={`p-4.5 ${tipColors.bg} border ${tipColors.border} rounded-2xl space-y-2.5 flex-1 shadow-inner`}>
               <div className={`flex items-center gap-2 ${tipColors.text} font-bold text-xs`}>
                 {currentTip.icon}
                 {currentTip.title}
@@ -236,62 +236,64 @@ export default function CitizenDashboardPage() {
               <p className="text-slate-300 text-xs leading-relaxed">{currentTip.body}</p>
             </div>
 
-            <div className="flex items-center justify-between mt-3">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${tipColors.badge}`}>
+            <div className="flex items-center justify-between mt-4.5">
+              <span className={`text-[9px] font-bold px-2.5 py-0.5 rounded border uppercase tracking-wider ${tipColors.badge}`}>
                 {currentTip.tag}
               </span>
-              <Link to="/officer/knowledge-graph" className={`text-[11px] ${tipColors.text} font-semibold hover:underline flex items-center gap-1`}>
-                Learn More <ChevronRight className="w-3 h-3" />
+              <Link to="/officer/knowledge-graph" className={`text-[11px] ${tipColors.text} font-bold hover:underline flex items-center gap-1`}>
+                Learn More <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
           {/* Live Advisories Panel */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <Bell className="w-4 h-4 text-amber-400" />
-                <h3 className="text-sm font-bold text-slate-200">Latest Health Advisories</h3>
-              </div>
-              <button
-                id="refresh-advisories-btn"
-                onClick={fetchAdvisories}
-                disabled={loadingAdvisories}
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 transition"
-                title="Refresh advisories"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${loadingAdvisories ? 'animate-spin' : ''}`} />
-              </button>
-            </div>
-
-            <div className="space-y-2 flex-1">
-              {loadingAdvisories ? (
-                <div className="flex items-center justify-center h-24 text-slate-500 text-xs">
-                  <RefreshCw className="w-4 h-4 animate-spin mr-2" /> Loading advisories…
+          <div className="bg-slate-950/65 border border-slate-900 rounded-3xl p-6.5 flex flex-col justify-between backdrop-blur-xl shadow-lg">
+            <div>
+              <div className="flex items-center justify-between mb-4.5">
+                <div className="flex items-center gap-2">
+                  <Bell className="w-4 h-4 text-amber-400" />
+                  <h3 className="text-sm font-bold text-slate-205">Latest Health Advisories</h3>
                 </div>
-              ) : (
-                advisories.map((adv) => (
-                  <Link
-                    key={adv.id}
-                    to="/officer/news-intelligence"
-                    id={`advisory-link-${adv.id}`}
-                    className="block p-3 bg-slate-950/60 border border-slate-800 rounded-xl hover:border-slate-700 transition text-xs group"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="space-y-0.5 flex-1">
-                        <span className="text-[10px] text-slate-500">{adv.date} · {adv.source}</span>
-                        <p className="font-semibold text-slate-200 group-hover:text-white transition leading-snug">{adv.title}</p>
+                <button
+                  id="refresh-advisories-btn"
+                  onClick={fetchAdvisories}
+                  disabled={loadingAdvisories}
+                  className="p-2 rounded-xl bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-slate-205 border border-slate-800 transition-colors"
+                  title="Refresh advisories"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loadingAdvisories ? 'animate-spin' : ''}`} />
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {loadingAdvisories ? (
+                  <div className="flex items-center justify-center h-24 text-slate-500 text-xs">
+                    <RefreshCw className="w-4 h-4 animate-spin mr-2" /> Loading advisories…
+                  </div>
+                ) : (
+                  advisories.map((adv) => (
+                    <Link
+                      key={adv.id}
+                      to="/officer/news-intelligence"
+                      id={`advisory-link-${adv.id}`}
+                      className="block p-3.5 bg-slate-950/80 border border-slate-900 rounded-2xl hover:border-slate-800 transition text-xs group"
+                    >
+                      <div className="flex items-start justify-between gap-2.5">
+                        <div className="space-y-1 flex-1">
+                          <span className="text-[9px] font-bold text-slate-500">{adv.date} · {adv.source}</span>
+                          <p className="font-bold text-slate-200 group-hover:text-white transition duration-300 leading-snug">{adv.title}</p>
+                        </div>
+                        <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-slate-400 flex-shrink-0 mt-1.5 group-hover:translate-x-1 transition-all duration-300" />
                       </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-slate-400 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-all" />
-                    </div>
-                  </Link>
-                ))
-              )}
+                    </Link>
+                  ))
+                )}
+              </div>
             </div>
 
             <Link
               to="/officer/news-intelligence"
-              className="mt-4 text-center text-xs text-blue-400 hover:text-blue-300 font-semibold transition"
+              className="mt-5 text-center text-xs text-cyan-400 hover:text-cyan-300 font-bold transition duration-300"
             >
               View All Advisories →
             </Link>
